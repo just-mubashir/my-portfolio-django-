@@ -37,7 +37,7 @@ def login_page(request):  # sourcery skip: last-if-guard, use-named-expression
             return redirect('/')
         messages.warning(request, 'Invalid credentials')
         return HttpResponseRedirect(request.path_info)
-    return render(request ,'accounts/login.html')
+    return render(request ,'profiles/login.html')
 def activate_email(request , email_token):
     try:
         user = UserProfile.objects.get(email_token= email_token)

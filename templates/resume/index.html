@@ -1,0 +1,165 @@
+{% extends "layout.html" %} 
+{% block title %} RESUME - codeatemail {% endblock title %} 
+{% block body %}
+<!-- RESUME HEAD -->
+{% load static %}
+<section class="text-gray-600 body-font">
+  <div class="container px-5 py-24 mx-auto flex flex-col">
+    <div class="lg:w-4/6 mx-auto">
+      <div class="rounded-lg h-64 overflow-hidden">
+        <img
+          alt="content"
+          class="object-cover object-center h-full w-full"
+          src="{% static 'python-developer-1200x500.png' %}"
+        />
+      </div>
+      <div class="flex flex-col sm:flex-row mt-10">
+        {% for desc in description %}
+        <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+          <div
+            class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 text-gray-900"
+          >
+            <img
+              src="/media/{{desc.avator}}"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="10"
+              class="w-25 h-25"
+              viewBox="0 0 24 24"
+            />
+          </div>
+          <div class="flex flex-col items-center text-center justify-center">
+            <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">
+              {{desc.user.first_name}} {{desc.user.last_name}}
+            </h2>
+            <div class="w-12 h-1 bg-indigo-500 rounded mt-2 mb-4"></div>
+            <p class="font-medium title-font mt-4 text-gray-900 text-lg">
+              {{desc.job_role}}
+            </p>
+          </div>
+        </div>
+        <div
+          class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left"
+        >
+          <h1 class="md:text-3xl text-2xl font-medium title-font text-gray-900">
+            Summary
+          </h1>
+          <br />
+          <hr />
+          <br /><br />
+          <p class="leading-relaxed text-lg mb-4">{{desc.about_user|safe}}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  {% for exp in experience %}
+  <div class="container px-5 py-24 mx-auto flex flex-wrap">
+    <h1 class="md:text-3xl text-2xl font-medium title-font text-gray-900">
+      Work Experience :
+    </h1>
+    <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
+      <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
+        <div class="h-full w-1 bg-gray-200 pointer-events-none"></div>
+      </div>
+      <div
+        class="flex-shrink-0 w-6 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-indigo-500 text-white relative z-10 title-font font-medium text-sm"
+      >{{exp.id}}
+    </div>
+    <div
+    class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row"
+      >
+        <div
+          class="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center"
+        >
+          <svg
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            class="w-12 h-12"
+            viewBox="0 0 24 24"
+            >
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+        </div>
+        <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
+          <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
+            {{exp.organization}}
+          </h2>
+          <h4 class="font-medium title-font text-gray-900 mb-1 text-xl">
+            {{exp.position}}
+          </h4>
+          <p class="leading-relaxed"> {{exp.start_date}}-{{exp.end_date}}</p><br>
+          <h4 class="md:text-xl text-xl font-medium title-font text-gray-900">Technologies worked on :</h4>
+          <p class="leading-relaxed"> {{exp.technologies | safe}} </p>
+          <h4 class="md:text-xl text-xl font-medium title-font text-gray-900">Roles and Resonsiblities :</h4><br>
+          <h6 class="font-medium title-font text-gray-900 mb-1 text-xl">
+            {{exp.roles |safe}}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  {% for skill in skillset %}
+  <div class="container px-5 py-24 mx-auto">
+    <h1 class="text-3xl font-medium title-font text-gray-900 mb-12 text-center">Skills :</h1>
+      <div class="text-xl font-medium title-font text-gray-900 mb-12 text-center">
+        <p class="text-xl font-medium title-font text-gray-900 mb-12 text-center">{{skill.skills|safe}}</p>
+      </div>
+  </div>
+  {% endfor %}
+
+  <div class="container px-5 py-24 mx-auto">
+    {% for certificate in certification %}
+    <div class="-my-8 divide-y-2 divide-gray-100">
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="mt-1 text-gray-500 text-sm">{{certificate.year_awarded}}</span>
+          <span class="font-semibold title-font text-gray-700">{{certificate.title}}</span>
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">Awarded by : {{certificate.title_awarded_by}}</h2>
+        </div>
+      </div> 
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="container px-5 py-24 mx-auto">
+    <div class="-my-8 divide-y-2 divide-gray-100">
+      <h1 class="md:text-3xl text-2xl font-medium title-font text-gray-900">
+        Education :
+      </h1>
+      {% for edu in education %}
+      <div class="py-8 flex flex-wrap md:flex-nowrap">
+        <div class="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col">
+          <span class="font-semibold title-font text-gray-700"
+            >{{edu.title}}</span
+          >
+          <span class="mt-1 text-gray-500 text-sm"
+            >From : {{edu.year_of_joining}}-{{edu.year_of_passing}}</span
+          >
+          <span class="mt-1 text-gray-500 text-sm">City : {{edu.city}}</span>
+          <span class="mt-1 text-gray-500 text-sm"
+            >Country : {{edu.country}}</span
+          >
+        </div>
+        <div class="md:flex-grow">
+          <h2 class="text-2xl font-medium text-gray-900 title-font mb-2">
+            {{edu.university_name}}
+          </h2>
+          <p class="leading-relaxed">Subjects : {{edu.subjects|safe}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<!-- EDUCATION -->
+{% endblock body %}

@@ -1,0 +1,4 @@
+nmp init
+npm install -D tailwindcss postcss autoprefixer vite
+npx tailwindcss init
+npm run start

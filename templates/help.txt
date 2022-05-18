@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}
+BLOG POST - codeatemail
+{% endblock title %}
+{% block body %}
+  
+{% endblock body %}
+
+
+
+Web Development in pythonic way, creating and serving API models. Machine Learning and Data Analysis works closely with Agile methodology
+
+Frameworks	Django, DjangoRestFramework
+Programming Languages 	Python, Java Script
+Cloud Technologies	AWS, Digital Ocean
+Front End 	HTML, BootStrap, Tailwinds CSS, CSS
+Libraries	NumPy, Pandas, Matplotlib, Sci-Kit Learn, and many more.
+Domain worked on 	E- Commerce Solutions & Payment Gateway Integrations, HRMS Payrolls and Employee Management Portals, Ed-Tech Solutions, Fin-Tech Solutions, Data Analysis, Web sockets, Machine learning models, Blogs and still learning.
+Database	MySql, Postgresql, MongoDB and DynamoDB
+Cloud Services	AWS S3, AWS EC2, AWS Lambda, AWS ElasticBeanstalk, and more.
+API	Rest API with Documentations using postman
+IDE	MicroSoft VS Code, PyCharm and Jupyter Lab
+Code repositories	GitHub and BitBucket
+
