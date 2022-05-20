@@ -41,6 +41,8 @@ urlpatterns = [
         {'document_root': settings.MEDIA_ROOT}),
     url(r'^static/(?P<path>.*)$', serve,
         {'document_root': settings.STATIC_ROOT}),
+    # all auth url configurations
+    path('accounts/', include('allauth.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
@@ -70,3 +72,6 @@ urlpatterns = [
 ]
 
 '''
+
+
+print('working with urls.py')

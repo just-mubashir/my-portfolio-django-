@@ -47,7 +47,35 @@ INSTALLED_APPS = [
     'social',
     'ckeditor',
     'rest_framework_simplejwt',
-]
+    # all auths 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
+    'allauth.socialaccount.providers.instagram',
+    'allauth.socialaccount.providers.google',
+    ]
+    
+# _ _ _ _ _ _ - All auth configuration_ _ _ _ _ _ _ _ _   
+SITE_ID = 1
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        # For each OAuth based provider, either add a ``SocialApp``
+        # (``socialaccount`` app) containing the required client
+        # credentials, or list them here:
+        'APP': {
+            'client_id': '123',
+            'secret': '456',
+            'key': ''
+        }
+    }
+}
+# _ _ _ _ _ _ - All auth configuration_ _ _ _ _ _ _ _ _   
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -84,6 +112,22 @@ WSGI_APPLICATION = 'core.wsgi.application'
 '''ASGI Configuration'''
 ASGI_APPLICATION = "core.asgi.application" 
 # _______________________________________
+
+# _______________________________________
+
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+# _______________________________________
+
+
+
 
 
 # Database
@@ -162,3 +206,12 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'codeatemail@gmail.com'
 EMAIL_HOST_PASSWORD = 'beera@321'
+
+
+
+
+
+
+
+
+print('Running Settings.py')
